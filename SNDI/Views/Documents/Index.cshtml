@@ -1,0 +1,161 @@
+﻿@model IEnumerable<SNDI.Models.Document>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Circonscription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LieuxEtablissement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomDeFamille)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomDeJeuneFille)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pseudo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SituationMatrimoniale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEnfant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateDenaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LieuxNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaysNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationnalite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommuneDeNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDeTelephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profession)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Domicile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeDepiece)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDePiece)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEdition)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Circonscription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LieuxEtablissement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomDeFamille)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomDeJeuneFille)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pseudo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SituationMatrimoniale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEnfant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDenaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LieuxNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaysNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationnalite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommuneDeNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDeTelephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profession)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Domicile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeDepiece)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDePiece)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEdition)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

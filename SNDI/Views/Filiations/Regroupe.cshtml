@@ -1,0 +1,53 @@
+﻿@model SNDI.Models.RegroupeViewModel
+
+@{
+    ViewData["Title"] = "Regroupe";
+}
+
+<h1>Recaputilatif Complet</h1>
+
+<div>
+    <h2>Informations du Document</h2>
+    <p>Numéro de Document: @Model.Document?.Numero</p>
+    <p>Date du Document: @Model.Document?.Date</p>
+    <p>Circonscription: @Model.Document?.Circonscription</p>
+    <p>Lieux etablissement: @Model.Document?.LieuxEtablissement</p>
+    <p>NomDeFamille: @Model.Document?.NomDeFamille</p>
+    <p>Nom de JeuneFille: @Model.Document?.NomDeJeuneFille</p>
+    <p>Prenom: @Model.Document?.Prenom</p>
+    <p>Pseudo: @Model.Document?.Pseudo</p>
+    <p>Sexe : @Model.Document?.Sexe</p>
+    <p>Situation matrimoniale: @Model.Document?.SituationMatrimoniale</p>
+    <p>NombreEnfant: @Model.Document?.NombreEnfant</p>
+    <p>Date de naissance: @Model.Document?.DateDenaissance</p>
+    <p>Lieux de naissance: @Model.Document?.LieuxNaissance</p>
+    <p>Pays de naissance: @Model.Document?.PaysNaissance</p>
+    <p>Nationnalite: @Model.Document?.Nationnalite</p>
+    <p>Commune de naissance: @Model.Document?.CommuneDeNaissance</p>
+    <p>Numero de telephone: @Model.Document?.NumeroDeTelephone</p>
+    <p>Profession: @Model.Document?.Profession</p>
+    <p>Numero: @Model.Document?.Numero</p>
+    <p>Domicile: @Model.Document?.Domicile</p>
+    <p>Type de piece: @Model.Document?.TypeDepiece</p>
+    <p>Numero de piece: @Model.Document?.NumeroDePiece</p>
+    <p>DateEdition: @Model.Document?.DateEdition</p>
+
+
+    <!-- Ajoutez d'autres propriétés de Document ici -->
+</div>
+<div>
+    <h2>Informations de la Filiation</h2>
+    <p>Nom du père: @Model.Filiation?.NomPere</p>
+    <p>Prénom du père: @Model.Filiation?.PrenomPere</p>
+    <p>Date de naissance du pere: @Model.Filiation?.DateDenaissancePere</p>
+    <p>Lieux de naissancePere: @Model.Filiation?.LieuxNaissancePere</p>
+    <p>Nom de la mere: @Model.Filiation?.NomMere</p>
+    <p>PrenomMere: @Model.Filiation?.PrenomMere</p>
+    <p>Date de naissance de la mere: @Model.Filiation?.DateDenaissanceMere</p>
+    <p>Lieux de naissance de la mere: @Model.Filiation?.LieuxNaissanceMere</p>
+    <!-- Ajoutez d'autres propriétés de Filiation ici -->
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste</a>
+</div>

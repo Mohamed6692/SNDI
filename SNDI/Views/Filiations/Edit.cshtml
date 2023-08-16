@@ -1,0 +1,74 @@
+﻿@model SNDI.Models.Filiation
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Filiation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="NomPere" class="control-label"></label>
+                <input asp-for="NomPere" class="form-control" />
+                <span asp-validation-for="NomPere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrenomPere" class="control-label"></label>
+                <input asp-for="PrenomPere" class="form-control" />
+                <span asp-validation-for="PrenomPere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateDenaissancePere" class="control-label"></label>
+                <input asp-for="DateDenaissancePere" class="form-control" />
+                <span asp-validation-for="DateDenaissancePere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LieuxNaissancePere" class="control-label"></label>
+                <input asp-for="LieuxNaissancePere" class="form-control" />
+                <span asp-validation-for="LieuxNaissancePere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomMere" class="control-label"></label>
+                <input asp-for="NomMere" class="form-control" />
+                <span asp-validation-for="NomMere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrenomMere" class="control-label"></label>
+                <input asp-for="PrenomMere" class="form-control" />
+                <span asp-validation-for="PrenomMere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateDenaissanceMere" class="control-label"></label>
+                <input asp-for="DateDenaissanceMere" class="form-control" />
+                <span asp-validation-for="DateDenaissanceMere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LieuxNaissanceMere" class="control-label"></label>
+                <input asp-for="LieuxNaissanceMere" class="form-control" />
+                <span asp-validation-for="LieuxNaissanceMere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentId" class="control-label"></label>
+                <select asp-for="DocumentId" class="form-control" asp-items="ViewBag.DocumentId"></select>
+                <span asp-validation-for="DocumentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

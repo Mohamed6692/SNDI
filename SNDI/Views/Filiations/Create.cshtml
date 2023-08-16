@@ -1,0 +1,103 @@
+﻿@model SNDI.Models.Filiation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Filiation</h4>
+<hr />
+<form asp-action="Create" class="row g-3 needs-validation" novalidate enctype="multipart/form-data">
+    <input type="hidden" asp-for="DocumentId" />
+    <div class="row g-3 needs-validation">
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip01" class="form-label">Nom du pere</label>
+            <input type="text" class="form-control" id="validationTooltip01" asp-for="NomPere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip02" class="form-label">Prenom du pere</label>
+            <input type="text" class="form-control" id="validationTooltip02" asp-for="PrenomPere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 needs-validation">
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip03" class="form-label">Né le</label>
+            <input type="date" class="form-control" id="validationTooltip03" asp-for="DateDenaissancePere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip04" class="form-label">Lieu de Naissance du pere</label>
+            <input type="text" class="form-control" id="validationTooltip04" asp-for="LieuxNaissancePere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 needs-validation">
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip05" class="form-label">Nom de la mere</label>
+            <input type="text" class="form-control" id="validationTooltip05" asp-for="NomMere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip06" class="form-label">Prenom de la mere</label>
+            <input type="text" class="form-control" id="validationTooltip06" asp-for="PrenomMere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 needs-validation">
+
+
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip08" class="form-label">Né le</label>
+            <input type="date" class="form-control" id="validationTooltip08" asp-for="DateDenaissanceMere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip07" class="form-label">Lieu de Naissance de la mere</label>
+            <input type="text" class="form-control" id="validationTooltip07" asp-for="LieuxNaissanceMere" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Create</button>
+    </div>
+
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
