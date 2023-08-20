@@ -205,6 +205,34 @@ namespace SNDI.Controllers
         }
 
 
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Regroupe(string FiliationId, string DocumentId)
+        {
+            if (ModelState.IsValid)
+            {
+                // Créez une nouvelle instance de Enregistrer avec les IDs fournis
+                var enregistrer = new Enregistrer
+                {
+                    FiliationId = FiliationId,
+                    DocumentId = DocumentId
+                };
+
+                _context.Enregistrer.Add(enregistrer);
+                await _context.SaveChangesAsync();
+
+                // Redirigez vers l'action Details appropriée en utilisant les IDs
+                var detailsUrl = Url.Action("Details", new { id = enregistrer.Id });
+                return Redirect("/");
+            }
+
+            // Si le modèle n'est pas valide, affichez le formulaire avec les erreurs
+            return View();
+        }
+
+
         private bool FiliationExists(string id)
         {
           return (_context.Filiation?.Any(e => e.id == id)).GetValueOrDefault();

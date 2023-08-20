@@ -16,6 +16,7 @@ namespace SNDI.Data
 
         public DbSet<SNDI.Models.Document> Document { get; set; } = default!;
 
-        public DbSet<SNDI.Models.Filiation>? Filiation { get; set; }
+        public DbSet<SNDI.Models.Filiation>? Filiation { get; set; } = default!;
+        public DbSet<SNDI.Models.Enregistrer>? Enregistrer { get; set; } = default!;
     }
 }

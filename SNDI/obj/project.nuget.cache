@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1tD6x4naewZrU//THWt2SteKvL/IG13k5X89zV3ujj/I0vIWIwSxbUOQvmy78sFBCMzx8v2st9bhwZ03KVJjYA==",
+  "dgSpecHash": "teuT/C1Q9kelP3iz7qyp8EFarlgf5tKAdJ+LDCMPMPv5BHkWhApU8jJVxIUdk3A7sLR7fj9utFEvIF23xODCcQ==",
   "success": true,
   "projectFilePath": "D:\\Version_SNDI\\SNDI\\SNDI.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Users\\MOHAMED\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\MOHAMED\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\MOHAMED\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\MOHAMED\\.nuget\\packages\\jquery\\3.7.0\\jquery.3.7.0.nupkg.sha512",
     "C:\\Users\\MOHAMED\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\MOHAMED\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\MOHAMED\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

@@ -31,7 +31,7 @@
     <p>Type de piece: @Model.Document?.TypeDepiece</p>
     <p>Numero de piece: @Model.Document?.NumeroDePiece</p>
     <p>DateEdition: @Model.Document?.DateEdition</p>
-
+   
 
     <!-- Ajoutez d'autres propriétés de Document ici -->
 </div>
@@ -45,9 +45,20 @@
     <p>PrenomMere: @Model.Filiation?.PrenomMere</p>
     <p>Date de naissance de la mere: @Model.Filiation?.DateDenaissanceMere</p>
     <p>Lieux de naissance de la mere: @Model.Filiation?.LieuxNaissanceMere</p>
+  
     <!-- Ajoutez d'autres propriétés de Filiation ici -->
 </div>
 
 <div>
+   
+    <form asp-action="Regroupe" class="row g-3 needs-validation uniform-border" novalidate enctype="multipart/form-data">
+        <input type="hidden" name="FiliationId" value="@Model.Filiation?.id" />
+        <input type="hidden" name="DocumentId" value="@Model.Document?.id" />
+        <div class="text-end">
+            <button class="btn btn-primary" type="submit">valider</button>
+        </div>
+    </form>
     <a asp-action="Index">Retour à la liste</a>
 </div>
+   
+

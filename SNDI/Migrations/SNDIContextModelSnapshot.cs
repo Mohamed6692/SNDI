@@ -99,6 +99,27 @@ namespace SNDI.Migrations
                     b.ToTable("Document");
                 });
 
+            modelBuilder.Entity("SNDI.Models.Enregistrer", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DocumentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FiliationId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentId");
+
+                    b.HasIndex("FiliationId");
+
+                    b.ToTable("Enregistrer");
+                });
+
             modelBuilder.Entity("SNDI.Models.Filiation", b =>
                 {
                     b.Property<string>("id")
@@ -137,6 +158,21 @@ namespace SNDI.Migrations
                     b.HasIndex("DocumentId");
 
                     b.ToTable("Filiation");
+                });
+
+            modelBuilder.Entity("SNDI.Models.Enregistrer", b =>
+                {
+                    b.HasOne("SNDI.Models.Document", "Document")
+                        .WithMany()
+                        .HasForeignKey("DocumentId");
+
+                    b.HasOne("SNDI.Models.Filiation", "Filiation")
+                        .WithMany()
+                        .HasForeignKey("FiliationId");
+
+                    b.Navigation("Document");
+
+                    b.Navigation("Filiation");
                 });
 
             modelBuilder.Entity("SNDI.Models.Filiation", b =>

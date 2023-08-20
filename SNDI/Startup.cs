@@ -1,6 +1,8 @@
 ﻿using FastReport.Data;
 using FastReport.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using SNDI.Controllers;
 using System.Text.Json.Serialization;
 
 namespace ActeAdministratif
@@ -27,6 +29,7 @@ namespace ActeAdministratif
                 });
             services.AddMvc();
 
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +54,7 @@ namespace ActeAdministratif
             app.UseRouting();
 
             //app.UseMiddleware<UserMiddleware>();
-            //app.UseSession();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -68,15 +71,15 @@ namespace ActeAdministratif
 
         private string GetConnectionSting()
         {
-            string connexion = this.Configuration.GetConnectionString("Developpement");
+            string connexion = this.Configuration.GetConnectionString("DefaultConnectionString");
             if (this.Environment.IsDevelopment())
             {
-                connexion = this.Configuration.GetConnectionString("DevConnectionString");
+                connexion = this.Configuration.GetConnectionString("DefaultConnectionString");
             }
 
             if (this.Environment.IsStaging() || this.Environment.IsProduction())
             {
-                connexion = this.Configuration.GetConnectionString("ProdConnectionString");
+                connexion = this.Configuration.GetConnectionString("DefaultConnectionString");
             }
 
             return connexion;
