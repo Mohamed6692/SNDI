@@ -1,4 +1,5 @@
-﻿@model IEnumerable<SNDI.Models.Document>
+﻿@*@model IEnumerable<SNDI.Models.Document>*@
+@model List<SNDI.Models.Enregistrer>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>SNDI | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -39,7 +40,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="~/img/Sndi.jpg" alt="Sndi" height="60" width="60">
         </div>
 
        
@@ -51,7 +52,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Liste des demandeurs</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -130,10 +131,14 @@
                         <!-- ./col -->
                     </div>
                 </div><!-- /.container-fluid -->
+                <p>
+                    <a asp-action="Create" class="btn btn-success btn-sm">Nouvelle demande</a>
+
+                </p>
                 <div >
 
                     <!-- Main content -->
-                    @foreach (var item in Model)
+                    @foreach (var enregistrement in Model)
                     {
                         <section class="content">
                             <div class="container-fluid">
@@ -142,98 +147,117 @@
                                         <!-- Default box -->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h3 class="card-title">  @Html.DisplayNameFor(model => model.Numero) :@Html.DisplayFor(modelItem => item.Numero)</h3>
+                                                <h3 class="card-title">  @Html.DisplayNameFor(model => enregistrement.Document.Numero) :@Html.DisplayFor(modelItem => enregistrement.Document.Numero)</h3>
 
                                                 <div class="card-tools">
                                                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                                        <i class="fas fa-times"></i>
+
+
+                                                    <button type="button" class="btn btn-tool" data-card-widget="" title="Action">
+                                                        <!-- Notifications Dropdown Menu -->
+                                                        <li class="nav-item dropdown">
+                                                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                                                <i class="far fa-bell"></i>
+                                                                <span class="badge badge-warning navbar-badge">15</span>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                                                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                                                                <div class="dropdown-divider"></div>
+
+                                                                <a class="dropdown-item" href="/DemandeInit/Create?enregistrerId=@enregistrement?.Id">
+                                                                    <i class="fas fa-envelope mr-2"></i> Initier la demande
+                                                                    <span class="float-right text-muted text-sm">3 mins</span>
+                                                                </a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a href="#" class="dropdown-item">
+                                                                    <i class="fas fa-users mr-2"></i> 8 friend requests
+                                                                    <span class="float-right text-muted text-sm">12 hours</span>
+                                                                </a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a href="#" class="dropdown-item">
+                                                                    <i class="fas fa-file mr-2"></i> 3 new reports
+                                                                    <span class="float-right text-muted text-sm">2 days</span>
+                                                                </a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                                                            </div>
+                                                        </li>
                                                     </button>
+                                                   
+
+
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <table class="table">
                                                     <tr>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.Date): @Html.DisplayFor(modelItem => item.Date)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.Circonscription): @Html.DisplayFor(modelItem => item.Circonscription)
-                                                        </td>
-                                                        <td>
-                                                            Lieux de l'tablissement: @Html.DisplayFor(modelItem => item.LieuxEtablissement)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.NomDeFamille) :@Html.DisplayFor(modelItem => item.NomDeFamille)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.NomDeJeuneFille): @Html.DisplayFor(modelItem => item.NomDeJeuneFille)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.Prenom): @Html.DisplayFor(modelItem => item.Prenom)
-                                                        </td>
+                                                        <td>Numero:  @enregistrement.Document?.Numero</td>
+                                                        <td>Date:  @enregistrement.Document?.Date</td>
+                                                        <td>Circonscription :@enregistrement.Document?.Circonscription</td>
+                                                        <td>LieuxEtablissement:@enregistrement.Document?.LieuxEtablissement</td>
+                                                        <td>NomDeFamille:   @enregistrement.Document?.NomDeFamille</td>
+                                                         
+                                                    </tr>
+                                                    <tr>
+                                                        <td> NomDeJeuneFille:@enregistrement.Document?.NomDeJeuneFille</td>
+                                                        <td>Prenom:  @enregistrement.Document?.Prenom</td>
+                                                        <td>Pseudo:@enregistrement.Document?.Pseudo</td>
+                                                        <td>Sexe:@enregistrement.Document?.Sexe</td>
+                                                        <td>SituationMatrimoniale:@enregistrement.Document?.SituationMatrimoniale</td>
+                                                        <td>SituationMatrimoniale:@enregistrement.Document?.SituationMatrimoniale</td>
                                                     </tr>
 
                                                     <tr>
-
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.Pseudo):  @Html.DisplayFor(modelItem => item.Pseudo)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.Sexe): @Html.DisplayFor(modelItem => item.Sexe)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.SituationMatrimoniale): @Html.DisplayFor(modelItem => item.SituationMatrimoniale)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.NombreEnfant): @Html.DisplayFor(modelItem => item.NombreEnfant)
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayNameFor(model => model.DateDenaissance): @Html.DisplayFor(modelItem => item.DateDenaissance)
-                                                        </td>
+                                                        
+                                                        
+                                                        <td>NombreEnfant:  @enregistrement.Document?.NombreEnfant</td>
+                                                        <td>DateDenaissance: @enregistrement.Document?.DateDenaissance</td>
+                                                        <td>LieuxNaissance:@enregistrement.Document?.LieuxNaissance</td>
+                                                        <td>PaysNaissance: @enregistrement.Document?.PaysNaissance</td>
+                                                        <td> Nationnalite: @enregistrement.Document?.Nationnalite</td>
+                                                        <td> CommuneDeNaissance: @enregistrement.Document?.CommuneDeNaissance</td>
+                                                    </tr>
                                                     <tr>
+                                                        <td> NumeroDeTelephone:@enregistrement.Document?.NumeroDeTelephone</td>
+                                                        <td> Profession: @enregistrement.Document?.Profession</td>
+                                                        <td>Domicile:  @enregistrement.Document?.Domicile</td>
+                                                        <td> TypeDepiece  @enregistrement.Document?.TypeDepiece</td>
+                                                        <td> NumeroDePiece: @enregistrement.Document?.NumeroDePiece</td>
+                                                        <td>DateEdition:@enregistrement.Document?.DateEdition</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>NomPere: @enregistrement.Filiation?.NomPere</td>
+                                                        <td>PrenomPere: @enregistrement.Filiation?.PrenomPere</td>
+                                                        <td>DateDenaissancePere:@enregistrement.Filiation?.DateDenaissancePere</td>
+                                                        <td>LieuxNaissancePere:@enregistrement.Filiation?.LieuxNaissancePere</td>
+                                                        <td>TypeDePiecesPere:  @enregistrement.Filiation?.TypeDePiecesPere</td>
+                                                        <td>NumeroPiecePere: @enregistrement.Filiation?.NumeroPiecePere</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td> DateeditionPere:@enregistrement.Filiation?.DateeditionPere</td>
+                                                        <td>LieuxEditionPere: @enregistrement.Filiation?.LieuxEditionPere</td>
+                                                        <td> NomMere:   @enregistrement.Filiation?.NomMere</td>
+                                                        <td>PrenomMere: @enregistrement.Filiation?.PrenomMere</td>
+                                                        <td>DateDenaissanceMere:@enregistrement.Filiation?.DateDenaissanceMere</td>
+                                                    </tr>
 
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.LieuxNaissance): @Html.DisplayFor(modelItem => item.LieuxNaissance)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.PaysNaissance): @Html.DisplayFor(modelItem => item.PaysNaissance)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.Nationnalite): @Html.DisplayFor(modelItem => item.Nationnalite)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.CommuneDeNaissance): @Html.DisplayFor(modelItem => item.CommuneDeNaissance)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.NumeroDeTelephone) :@Html.DisplayFor(modelItem => item.NumeroDeTelephone)
-                                                        </td>
+                                                    <tr>   
+                                                        <td> LieuxNaissanceMere:@enregistrement.Filiation?.LieuxNaissanceMere</td>
+                                                        <td>TypeDePiecesMere   : @enregistrement.Filiation?.TypeDePiecesMere</td>
+                                                        <td>NumeroPieceMere: @enregistrement.Filiation?.NumeroPieceMere</td>
+                                                        <td>DateeditionMere:  @enregistrement.Filiation?.DateeditionMere</td>
+                                                        <td> LieuxEditionMere:@enregistrement.Filiation?.LieuxEditionMere</td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                                @Html.DisplayNameFor(model => model.Profession): @Html.DisplayFor(modelItem => item.Profession)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.Domicile): @Html.DisplayFor(modelItem => item.Domicile)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.TypeDepiece) :@Html.DisplayFor(modelItem => item.TypeDepiece)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.NumeroDePiece): @Html.DisplayFor(modelItem => item.NumeroDePiece)
-                                                        </td>
-                                                        <td>
-                                                                @Html.DisplayNameFor(model => model.DateEdition): @Html.DisplayFor(modelItem => item.DateEdition)
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a asp-action="Edit" asp-route-id="@item.id"> <i class="fas fa-edit">Edit</i></a> |
-                                                            <a asp-action="Details" asp-route-id="@item.id"><i class="fas fa-inbox text-warning"></i> Details</a> |
-                                                            <a asp-action="Delete" asp-route-id="@item.id"><i class="fas fa-trash text-danger"></i>Delete</a>
-                                                            <a asp-action="" asp-route-id="@item.id"><i class=""></i>Imprimer</a>
+                                                            <a asp-action="Edit" asp-route-id=""> <i class="fas fa-edit">Edit</i></a> |
+                                                            <a asp-action="Details" asp-route-id=""><i class="fas fa-inbox text-warning"></i> Details</a> |
+                                                            <a asp-action="Delete" asp-route-id=""><i class="fas fa-trash text-danger"></i>Delete</a>
+                
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -255,9 +279,7 @@
                 </div>
             </section>
 
-            <p>
-                <a asp-action="Create">Create New</a>
-            </p>
+            
             
 
             <!-- /.content -->
@@ -313,8 +335,6 @@
     <script src="dist/js/pages/dashboard.js"></script>
 </body>
 </html>
-
-
 
 
 

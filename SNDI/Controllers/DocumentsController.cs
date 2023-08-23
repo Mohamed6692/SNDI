@@ -56,12 +56,24 @@ namespace SNDI.Controllers
 
 
         // GET: Documents
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //      return _context.Document != null ? 
+        //                  View(await _context.Document.ToListAsync()) :
+        //                  Problem("Entity set 'SNDIContext.Document'  is null.");
+        //}
+
+        // GET: Documents second
+        public IActionResult Index()
         {
-              return _context.Document != null ? 
-                          View(await _context.Document.ToListAsync()) :
-                          Problem("Entity set 'SNDIContext.Document'  is null.");
+            var enregistrements = _context.Enregistrer
+                .Include(e => e.Document) // Charge l'objet Document associé
+                .Include(e => e.Filiation) // Charge l'objet Filiation associé
+                .ToList();
+
+            return View(enregistrements);
         }
+
 
         // GET: Documents/Details/5
         public async Task<IActionResult> Details(string id)

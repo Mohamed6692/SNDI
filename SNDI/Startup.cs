@@ -4,8 +4,17 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using SNDI.Controllers;
 using System.Text.Json.Serialization;
+using Identity.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
+using SNDI.Areas.Identity.Data;
+using SNDI.Data;
 
-namespace ActeAdministratif
+namespace UserManager
 {
     public class Startup
     {
@@ -20,16 +29,39 @@ namespace ActeAdministratif
 
         public void ConfigureServices(IServiceCollection services)
         {
-            RegisteredObjects.AddConnection(typeof(MsSqlDataConnection));
-            services.AddControllersWithViews()
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
-                });
-            services.AddMvc();
 
-            
+            services.AddDbContext<AuthContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]));
+            services.AddIdentity<SNDIUser, IdentityRole>().AddEntityFrameworkStores<AuthContext>().AddDefaultTokenProviders();
+
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Désactiver la vérification des caractères numériques dans le mot de passe
+                options.Password.RequireDigit = false;
+
+                // Désactiver la vérification des minuscules dans le mot de passe
+                options.Password.RequireLowercase = false;
+
+                // Désactiver la vérification des majuscules dans le mot de passe
+                options.Password.RequireUppercase = false;
+
+                // Désactiver la vérification des caractères spéciaux dans le mot de passe
+                options.Password.RequireNonAlphanumeric = false;
+
+                // Définir la longueur minimale du mot de passe (facultatif)
+                options.Password.RequiredLength = 8; // Par exemple, définir la longueur minimale à 6 caractères
+            });
+
+            //RegisteredObjects.AddConnection(typeof(MsSqlDataConnection));
+            //services.AddControllersWithViews()
+            //    .AddJsonOptions(options =>
+            //    {
+            //        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            //        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            //    });
+            //services.AddMvc();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

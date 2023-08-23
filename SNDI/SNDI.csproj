@@ -1838,6 +1838,7 @@
     <PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2023.2.27" />
     <PackageReference Include="FastReport.OpenSource.Web" Version="2023.2.27" />
     <PackageReference Include="jQuery" Version="3.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.21" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.21" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />

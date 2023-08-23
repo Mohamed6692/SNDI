@@ -19,8 +19,22 @@
             border: 1px solid #ced4da;
             border-radius: 0.25rem;
         }
-    </style>
+    
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
 
 </head>
 
@@ -36,7 +50,7 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>AdminLTE 3 | Dashboard</title>
+        <title>Sndi| Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -65,7 +79,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="~/img/Sndi.jpg" alt="SNDI" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -117,8 +131,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <img src="~/img/Sndi.jpg" alt="Sndi Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">SNDI</span>
             </a>
 
             <!-- Sidebar -->
@@ -129,7 +143,7 @@
                         <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">ID User</a>
                     </div>
                 </div>
 
@@ -166,7 +180,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
 
                                         <p>Demande initier</p>
@@ -289,24 +303,25 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 position-relative">
-                        <label for="validationTooltip04" class="form-label">Sexe</label>
-                        <select class="form-select" id="validationTooltip09" name="Sexe" required asp-for="Sexe">
-                            <option selected disabled value="">Choose.a gender.</option>
-                            <option value="1">Homme</option>
-                            <option value="2">Femme</option>
-                        </select>
-                        <div class="invalid-tooltip">
-                            Please select a valid gender.
-                        </div>
-                    </div>
+                            <div class="col-md-3 position-relative">
+                                <label for="validationTooltip04" class="form-label">Sexe</label>
+                                <select class="form-control select2 select2-danger" id="validationTooltip09" name="Sexe" required asp-for="Sexe" data-dropdown-css-class="select2-danger">
+                                    <option selected disabled value="">Choisir un genre.</option>
+                                    <option value="1">Homme</option>
+                                    <option value="2">Femme</option>
+                                </select>
+                                <div class="invalid-tooltip">
+                                    Please select a valid gender.
+                                </div>
+                            </div>
+
 
                     <div class="col-md-3 position-relative">
                         <label for="validationTooltip05" class="form-label">Situation Matrimoniale</label>
-                        <select class="form-select" id="validationTooltip10" name="SituationMatrimoniale" required asp-for="SituationMatrimoniale">
-                            <option selected disabled value="">Choose...</option>
-                            <option value="0">Celibataire</option>
-                            <option value="1">Marié</option>
+                                <select class="form-control select2 select2-danger" id="validationTooltip10" name="SituationMatrimoniale" required asp-for="SituationMatrimoniale">
+                            <option selected disabled value="">Choose..</option>
+                            <option value="1">Celibataire</option>
+                            <option value="2">Marié</option>
                         </select>
                         <div class="invalid-tooltip">
                             Please select a valid marital status.
@@ -486,7 +501,7 @@
             <!-- Control sidebar content goes here -->
         </aside>
         <!-- /.control-sidebar -->
-    </div>
+  </div>
     <!-- ./wrapper -->
     <!-- jQuery -->
     <script src="/plugins/jquery/jquery.min.js"></script>

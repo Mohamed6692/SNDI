@@ -28,7 +28,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>SNDI| Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -58,7 +58,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="~/img/Sndi.jpg" alt="Sndi" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -110,7 +110,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="~/img/Sndi.jpg" alt="Sndi " class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
 
@@ -122,7 +122,7 @@
                         <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">ID User</a>
                     </div>
                 </div>
 
@@ -251,6 +251,51 @@
                                 Looks good!
                             </div>
                         </div>
+
+                        <div class="col-md-6 position-relative">
+                                <label for="validationTooltip05" class="form-label">Type de pieces</label>
+                                <select class="form-control select2 select2-danger" id="validationTooltip05" name="TypeDePiecesPere" required asp-for="TypeDePiecesPere" data-dropdown-css-class="select2-danger">
+                                    <option selected disabled value="">Choisir un type.</option>
+                                    <option value="1">CARTE NATIONNALE</option>
+                                    <option value="2">PERMIS CONDUITE</option>
+                                    <option value="2">PASSEPORT</option>
+                                </select>
+                                <div class="invalid-tooltip">
+                                    Please select a valid document.
+                                </div>
+                          </div>
+
+                        <div class="col-md-6 position-relative">
+                            <label for="validationTooltip06" class="form-label">Numero de piece</label>
+                            <input type="text" class="form-control" id="validationTooltip06" asp-for="NumeroPiecePere" required>
+                            <div class="valid-tooltip">
+                                Looks good!
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 position-relative">
+                            <label for="validationTooltip07" class="form-label">Date edition</label>
+                            <input type="date" class="form-control" id="validationTooltip07" asp-for="DateeditionPere" required>
+                            <div class="valid-tooltip">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 position-relative">
+                            <label for="validationTooltip08" class="form-label">Lieux d edition</label>
+                            <input type="text" class="form-control" id="validationTooltip08" asp-for="LieuxEditionPere" required>
+                            <div class="valid-tooltip">
+                                Looks good!
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
 
                         <div class="col-md-6 position-relative">
                             <label for="validationTooltip05" class="form-label">Nom de la Mère</label>

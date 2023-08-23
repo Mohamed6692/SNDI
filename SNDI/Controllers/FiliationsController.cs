@@ -60,7 +60,7 @@ namespace SNDI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,NomPere,PrenomPere,DateDenaissancePere,LieuxNaissancePere,NomMere,PrenomMere,DateDenaissanceMere,LieuxNaissanceMere,DocumentId")] Filiation filiation)
+        public async Task<IActionResult> Create([Bind("id,NomPere,PrenomPere,DateDenaissancePere,LieuxNaissancePere,TypeDePiecesPere,NumeroPiecePere,DateeditionPere,LieuxEditionPere,NomMere,PrenomMere,DateDenaissanceMere,LieuxNaissanceMere,TypeDePiecesMere,NumeroPieceMere,DateeditionMere,LieuxEditionMere,DocumentId")] Filiation filiation)
         {
             if (ModelState.IsValid)
             {

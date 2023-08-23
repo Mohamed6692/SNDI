@@ -2,7 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SNDI.Data;
 using Microsoft.AspNetCore.Identity;
+using Identity.Models;
+
+
+
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<SNDIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString") ?? throw new InvalidOperationException("Connection string 'SNDIContext' not found.")));
 
@@ -13,6 +18,15 @@ builder.Services.AddDbContext<AuthContext>(options =>
 builder.Services.AddDefaultIdentity<SNDI.Areas.Identity.Data.SNDIUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<AuthContext>();
 
+
+
+
+
+builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString") ?? throw new InvalidOperationException("Connection string 'AuthContext' not found.")));
+
+/*uilder.Services.AddIdentity<SNDI.Areas.Identity.Data.SNDIUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+*/
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

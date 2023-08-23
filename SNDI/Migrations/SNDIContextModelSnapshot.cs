@@ -22,6 +22,37 @@ namespace SNDI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("SNDI.Models.DemandeInit", b =>
+                {
+                    b.Property<string>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("DataRequet")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EnregistrerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<float?>("Montant")
+                        .HasColumnType("real");
+
+                    b.Property<string>("NombreCopie")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NumeroRecuPaiem")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeActAdmin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("EnregistrerId");
+
+                    b.ToTable("DemandeInit");
+                });
+
             modelBuilder.Entity("SNDI.Models.Document", b =>
                 {
                     b.Property<string>("id")
@@ -132,8 +163,20 @@ namespace SNDI.Migrations
                     b.Property<DateTime?>("DateDenaissancePere")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DateeditionMere")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateeditionPere")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("DocumentId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LieuxEditionMere")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LieuxEditionPere")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LieuxNaissanceMere")
                         .HasColumnType("nvarchar(max)");
@@ -147,10 +190,22 @@ namespace SNDI.Migrations
                     b.Property<string>("NomPere")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NumeroPieceMere")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NumeroPiecePere")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PrenomMere")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PrenomPere")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeDePiecesMere")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeDePiecesPere")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -158,6 +213,15 @@ namespace SNDI.Migrations
                     b.HasIndex("DocumentId");
 
                     b.ToTable("Filiation");
+                });
+
+            modelBuilder.Entity("SNDI.Models.DemandeInit", b =>
+                {
+                    b.HasOne("SNDI.Models.Enregistrer", "Enregistrer")
+                        .WithMany()
+                        .HasForeignKey("EnregistrerId");
+
+                    b.Navigation("Enregistrer");
                 });
 
             modelBuilder.Entity("SNDI.Models.Enregistrer", b =>

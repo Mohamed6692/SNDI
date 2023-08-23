@@ -18,5 +18,7 @@ namespace SNDI.Data
 
         public DbSet<SNDI.Models.Filiation>? Filiation { get; set; } = default!;
         public DbSet<SNDI.Models.Enregistrer>? Enregistrer { get; set; } = default!;
+        public DbSet<SNDI.Models.DemandeInit>? DemandeInit { get; set; } = default!;
+        
     }
 }

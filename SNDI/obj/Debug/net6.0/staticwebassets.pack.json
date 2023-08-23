@@ -1605,6 +1605,10 @@
       "PackagePath": "staticwebassets\\img\\LoginLogo.jpg"
     },
     {
+      "Id": "D:\\Version_SNDI\\SNDI\\wwwroot\\img\\Sndi.jpg",
+      "PackagePath": "staticwebassets\\img\\Sndi.jpg"
+    },
+    {
       "Id": "D:\\Version_SNDI\\SNDI\\wwwroot\\img\\logociv.png",
       "PackagePath": "staticwebassets\\img\\logociv.png"
     },

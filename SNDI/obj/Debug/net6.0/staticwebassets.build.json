@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "n++NtyX/XfmKHzdU0CROZHf4g+uyX/8tHsmLnSPNY+M=",
+  "Hash": "gNgU57CklodPczHei822XgitgVtvyDD8lKbXD/6Ju1I=",
   "Source": "SNDI",
   "BasePath": "_content/SNDI",
   "Mode": "Default",
@@ -7886,6 +7886,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logociv.png"
+    },
+    {
+      "Identity": "D:\\Version_SNDI\\SNDI\\wwwroot\\img\\Sndi.jpg",
+      "SourceId": "SNDI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Version_SNDI\\SNDI\\wwwroot\\",
+      "BasePath": "_content/SNDI",
+      "RelativePath": "img/Sndi.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Sndi.jpg"
     },
     {
       "Identity": "D:\\Version_SNDI\\SNDI\\wwwroot\\index.html",

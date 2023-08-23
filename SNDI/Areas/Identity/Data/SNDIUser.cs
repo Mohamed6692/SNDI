@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 namespace SNDI.Areas.Identity.Data;
 
 // Add profile data for application users by adding properties to the SNDIUser class
-public class SNDIUser : IdentityUser
+public class SNDIUser : IdentityUser   
 {
     [PersonalData]
     [Column(TypeName="nvarchar(100)")]
@@ -17,5 +17,9 @@ public class SNDIUser : IdentityUser
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public string? Prenom { get; set; }
+
+    [PersonalData]
+    [Column(TypeName = "nvarchar(100)")]
+    public string? PassGenerate { get; set; }
 }
 
